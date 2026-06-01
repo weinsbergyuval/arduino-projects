@@ -9,6 +9,17 @@ int pumpPin1 = 5;   // L9110 A-1A
 int pumpPin2 = 6;   // L9110 A-1B
 
 int threshold = 350; // above = dry, below = wet
+bool wasWatering = false;  // track state to play melody only once
+
+void playConfirmBeep() {
+    tone(buzzerPin, 523, 100);  // C note
+    delay(150);
+    tone(buzzerPin, 659, 100);  // E note
+    delay(150);
+    tone(buzzerPin, 784, 150);  // G note
+    delay(200);
+    noTone(buzzerPin);
+}
 
 void setup() {
     Serial.begin(9600);
@@ -41,7 +52,12 @@ void loop() {
         // dry soil — water it!
         analogWrite(pumpPin1, 200);
         analogWrite(pumpPin2, 0);
-        tone(buzzerPin, 1000);
+        
+        // play melody only when watering STARTS, not every second
+        if (!wasWatering) {
+            playConfirmBeep();
+            wasWatering = true;
+        }
         
         lcd.setCursor(0, 1);
         lcd.print("Watering...     ");
@@ -51,6 +67,7 @@ void loop() {
         analogWrite(pumpPin1, 0);
         analogWrite(pumpPin2, 0);
         noTone(buzzerPin);
+        wasWatering = false;  // reset so melody plays next time
         
         lcd.setCursor(0, 1);
         lcd.print("Soil is OK :)   ");
