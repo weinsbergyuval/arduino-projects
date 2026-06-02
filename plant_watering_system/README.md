@@ -3,7 +3,7 @@
 An Arduino-based automated irrigation system that monitors soil moisture and activates a water pump when the soil is dry.
 
 ## Demo
-> Video coming soon — check my [LinkedIn](https://www.linkedin.com/in/yuval-weinsberg-b2aa54284/)
+> Watch the build on [LinkedIn](https://www.linkedin.com/in/yuval-weinsberg-b2aa54284/)
 
 ## How It Works
 1. Capacitive soil moisture sensor reads soil humidity every second
