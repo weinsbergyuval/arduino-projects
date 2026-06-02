@@ -1,4 +1,4 @@
-# 🔧 Arduino Projects
+# Arduino Projects
 
 A collection of embedded systems and IoT projects built with Arduino Uno as part of my hardware engineering journey.
 
@@ -7,6 +7,8 @@ A collection of embedded systems and IoT projects built with Arduino Uno as part
 | Project | Description | Skills |
 |---|---|---|
 | [Plant Watering System](./plant_watering_system) | Automatic irrigation controller with soil moisture sensor, pump, and LCD display | C++, I2C, PWM, Sensor Integration |
+| [Weather Station](./weather_station) | Multi-sensor environmental monitor with rotating LCD display, heat index, and light status | C++, DHT11, I2C, Analog sensors |
+
 
 ## Hardware
 - SunFounder R3 (Arduino Uno R3)
